@@ -1,0 +1,60 @@
+# Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+
+# Environment variables
+.env
+
+# IDE or editor settings
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Dependency directories
+node_modules/
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Database or cache
+*.sqlite3
+*.db
+*.sqlite
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
+
+# Coverage and testing
+.coverage
+htmlcov/
+.nox/
+.pytest_cache/
+.tox/
+
+# Ignore Jupyter Notebook checkpoints (if used)
+.ipynb_checkpoints/
+
+
+# Local File
+sent_messages.csv
+group_members.csv
+my_userbot.session
+

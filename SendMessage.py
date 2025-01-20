@@ -2,12 +2,18 @@ import csv
 import time
 from pyrogram import Client
 
+from dotenv import load_dotenv
+import os
+
+# Load the .env file
+load_dotenv()
+
 # Replace with your API credentials
 # api_id = "25813834"
-api_id = "25367691"
+api_id = os.getenv("API_ID")
 # api_hash = "e130f8698a9ac19ba738a3c66b605eb7"
-api_hash = "3f5fa604eb0ebebf6581aa882b733b59"
-group_id = "-1001431628031"  # Replace with your group's ID or username
+api_hash = os.getenv("API_HASH")
+group_id = os.getenv("GROUP_ID")  # Replace with your group's ID or username
 
 # List of local image paths
 image_paths = [

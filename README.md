@@ -4,7 +4,7 @@ A powerful and customizable Telegram bot designed to Find Telegram member, colle
 Features
 🌟 Feature 1: ALLChatID
 🔍 Feature 2: GroupID
-🛠️ Feature 3: Fach Group Members
+🛠️ Feature 3: Fanch Group Members
 🎨 Feature 4: Send Message
 Getting Started
 Prerequisites
@@ -17,7 +17,7 @@ Clone the repository:
 bash
 Copy
 Edit
-git clone https://github.com/sushen/Moon_Pai_Bot.git  
+git clone https://github.com/sushen/SignalOnTelegram.git  
 cd Moon_Pai_Bot  
 Install dependencies:
 
