@@ -14,6 +14,7 @@ api_id = os.getenv("API_ID")
 # api_hash = "e130f8698a9ac19ba738a3c66b605eb7"
 api_hash = os.getenv("API_HASH")
 group_id = os.getenv("GROUP_ID")  # Replace with your group's ID or username
+phone_number = os.getenv("PHONE_NUMBER")
 
 # List of local image paths
 image_paths = [
@@ -22,8 +23,7 @@ image_paths = [
     # r"C:\Users\user\PycharmProjects\SignalOnTelegram\image\3.jpeg"  # Third image
 ]
 
-# Create the userbot client
-with Client("my_userbot", api_id, api_hash, phone_number="+8801553841687") as app:
+with Client("my_userbot", api_id, api_hash, phone_number=phone_number) as app:
     try:
         print("Fetching group members...")
 

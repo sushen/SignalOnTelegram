@@ -1,1 +1,1 @@
-ALLChatID >> GroupID >> fachGroupMembers >> SendMessage
+ALLChatID >> GroupID >> fachGroupMembers >> SendMessage >> SendMessageOnlineMember

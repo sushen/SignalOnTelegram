@@ -8,11 +8,10 @@ import os
 load_dotenv()
 
 # Replace with your API credentials
-# api_id = "25813834"
 api_id = os.getenv("API_ID")
-# api_hash = "e130f8698a9ac19ba738a3c66b605eb7"
 api_hash = os.getenv("API_HASH")
 group_id = os.getenv("GROUP_ID")  # Replace with your group's ID or username
+phone_number = os.getenv("PHONE_NUMBER")
 
 # List of local image paths
 image_paths = [
@@ -22,7 +21,7 @@ image_paths = [
 ]
 
 # Create the userbot client
-with Client("my_userbot", api_id, api_hash, phone_number="+8801553841687") as app:
+with Client("my_userbot", api_id, api_hash, phone_number=phone_number) as app:
     try:
         print("Fetching group members...")
 
@@ -64,12 +63,11 @@ with Client("my_userbot", api_id, api_hash, phone_number="+8801553841687") as ap
 
                 # Fetch the user's data and log the response
                 user = app.get_users(user_id)
-                print(f"{index}. Full response for User ID {user_id}: {user}")
+                # print(f"{index}. Full response for User ID {user_id}: {user}")
 
-                input("Stop:")
 
                 # Check if user is online by looking at the status attribute
-                if user.status == "online":
+                if user.status and "ONLINE" in str(user.status).upper():
                     print(f"{index}. User ID {user_id} is online. Sending message...")
 
                     # Send each image from the list
@@ -85,17 +83,18 @@ with Client("my_userbot", api_id, api_hash, phone_number="+8801553841687") as ap
                     print(f"{index}. Sent message to User ID: {user_id}")
                     time.sleep(4)  # Optional: Add some delay between messages
 
-                    # Write the user ID to the new CSV file after sending the message
-                    sent_writer.writerow([user_id])
+                    # input(f"{index} Stop:")
 
-                    input("Press Enter to continue...")
                 else:
                     print(f"{index}. User ID {user_id} is not online. Skipping...")
 
                 # Add a delay between requests to avoid flooding
                 time.sleep(1)  # Adjust this delay based on your needs
 
-        print("Messages sent to all members and their IDs saved in 'sent_messages.csv'.")
 
+        print("Messages sent to all members and their IDs saved in 'sent_messages.csv'.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+

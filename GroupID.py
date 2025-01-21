@@ -12,7 +12,8 @@ api_id = os.getenv("API_ID")
 # api_hash = "e130f8698a9ac19ba738a3c66b605eb7"
 api_hash = os.getenv("API_HASH")
 group_id = os.getenv("GROUP_ID")  # Replace with your group's ID or username
+phone_number = os.getenv("PHONE_NUMBER")
 
-with Client("my_userbot", api_id, api_hash, phone_number="+8801553841687") as app:
+with Client("my_userbot", api_id, api_hash, phone_number=phone_number) as app:
     chat = app.get_chat("-1001431628031")  # Replace with the group's @username or invite link
     print(f"Group ID: {chat.id}")

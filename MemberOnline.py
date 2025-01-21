@@ -1,5 +1,4 @@
 from pyrogram import Client
-
 from dotenv import load_dotenv
 import os
 
@@ -7,25 +6,31 @@ import os
 load_dotenv()
 
 # Replace with your API credentials
-# api_id = "25813834"
 api_id = os.getenv("API_ID")
-# api_hash = "e130f8698a9ac19ba738a3c66b605eb7"
 api_hash = os.getenv("API_HASH")
-group_id = os.getenv("GROUP_ID")  # Replace with your group's ID or username
+user_id = 6763991026  # Replace with the user ID you want to check
+phone_number = os.getenv("PHONE_NUMBER")
 
 # Create the userbot client
-with Client("my_userbot", api_id, api_hash, phone_number="+8801553841687") as app:
+with Client("my_userbot", api_id, api_hash, phone_number=phone_number) as app:
     try:
-        # Fetch user status (globally, not in a specific group)
+        # Fetch user details
         user = app.get_users(user_id)
 
-        # You can use 'user.status' to check if they are online
-        if user.status == "UserStatus.ONLINE":
-            print(f"User ID {user_id} is online.")
-        elif user.status == "offline":
-            print(f"User ID {user_id} is offline.")
+        # Check if the user has a status
+        if user.status:
+            # Convert the status to a string for matching
+            status_str = str(user.status)
+
+            # Handle online and offline statuses
+            if "ONLINE" in status_str:
+                print(f"User ID {user_id} is online.")
+            elif "OFFLINE" in status_str:
+                print(f"User ID {user_id} is offline.")
+            else:
+                print(f"User ID {user_id} has an unhandled status: {status_str}")
         else:
-            print(f"User ID {user_id} status is: {user.status}")
+            print(f"User ID {user_id} does not have a status attribute.")
 
     except Exception as e:
         print(f"An error occurred: {e}")
